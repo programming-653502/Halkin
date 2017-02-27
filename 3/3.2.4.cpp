@@ -4,7 +4,7 @@
 using namespace std;
 
 int** a;
-int creating(int n)  //выделение дин.памяти для матрицы
+void creating(int n)  //выделение дин.памяти для матрицы
 {
 
 	a = new int*[n];
@@ -12,10 +12,10 @@ int creating(int n)  //выделение дин.памяти для матри�
 	{
 		a[i] = new int[n];
 	}
-	return **a;
+	
 }
 
-int filling(int **a,int n)  //заполнение матрицы
+void filling(int **a,int n)  //заполнение матрицы
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -26,7 +26,7 @@ int filling(int **a,int n)  //заполнение матрицы
 		}
 	}
 	system("cls");
-	return **a;
+	
 }
 void show(int **a, int n)  //вывод матрицы
 {
@@ -39,7 +39,7 @@ void show(int **a, int n)  //вывод матрицы
 		cout << endl;
 	}
 }
-int sort(int **a, int n)    //сортируем столбцы для наглядности
+void sort(int **a, int n)    //сортируем столбцы для наглядности
 {
 	for (int j = 0; j < n; j++)
 	{
@@ -56,7 +56,7 @@ int sort(int **a, int n)    //сортируем столбцы для нагл�
 			}
 		}
 	}
-	return **a;
+	
 }
 
 void objective(int **a, int n)  //поиск похожих столбцов
@@ -105,7 +105,13 @@ int main()
 	cout << endl << endl << "Упорядоченная матрица: " << endl;
 	show(a, n);
 	objective(a, n);
-	
+
+	for (int i = 0; i < n; i++)
+	{
+		delete[] a[i];
+	}
+	delete[] a;
+
 	system("pause");
     return 0;
 }
