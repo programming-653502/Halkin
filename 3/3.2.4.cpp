@@ -1,8 +1,10 @@
+﻿#include "stdafx.h"
 #include "iostream"
 #include "clocale"
 using namespace std;
 
 int** a;
+int creating(int n)  //выделение дин.памяти для матрицы
 {
 
 	a = new int*[n];
@@ -13,6 +15,7 @@ int** a;
 	return **a;
 }
 
+int filling(int **a,int n)  //заполнение матрицы
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -25,6 +28,7 @@ int** a;
 	system("cls");
 	return **a;
 }
+void show(int **a, int n)  //вывод матрицы
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -35,6 +39,7 @@ int** a;
 		cout << endl;
 	}
 }
+int sort(int **a, int n)    //сортируем столбцы для наглядности
 {
 	for (int j = 0; j < n; j++)
 	{
@@ -54,6 +59,7 @@ int** a;
 	return **a;
 }
 
+void objective(int **a, int n)  //поиск похожих столбцов
 {
 	cout << endl;
 	int count = 0;
@@ -66,6 +72,7 @@ int** a;
 				if (a[i][j] == a[i][k])
 					count++;
 			}
+			if (count == n) cout << "Столбцы " << j + 1 << " и " << k + 1 << " похожие" << endl;
 			count = 0;
 		}
 	}
@@ -77,12 +84,14 @@ int main()
 	setlocale(0, "rus");
 	char input[255];
 	int n;
+	cout << "Введите размер матрицы: ";
 
   a:cin >> input;
 	for (int i = 0; input[i] != '\0'; i++)
 	{
 		if (input[i] < '0' || input[i]> '9')
 		{
+			cout << "Ошибка ввода, введите еще раз" << endl;
 			goto a;
 		}
 	}
@@ -90,8 +99,10 @@ int main()
 
 	creating(n);
 	filling(a, n);
+	cout << "Введенная матрица: " << endl;
 	show(a, n);
 	sort(a, n);
+	cout << endl << endl << "Упорядоченная матрица: " << endl;
 	show(a, n);
 	objective(a, n);
 	
