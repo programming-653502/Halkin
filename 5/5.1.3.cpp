@@ -18,9 +18,8 @@ Word *head = NULL;
 Word *tail = NULL;
 
 	
-int list(char c) // создание списков
+void list(char c) // создание списков
 {
-	int count = 0;
 	Word *current;
 		if (head == NULL)
 		{
@@ -39,9 +38,6 @@ int list(char c) // создание списков
 			tail->next = current;
 			tail = current;
 		}
-		count++;
-
-	return count;
 }
 
 void main()
@@ -58,7 +54,8 @@ void main()
 		cin.getline(input, 255);
 		for (int i = 0; i < strlen(input); i++)
 		{
-			if ((input[i] >= 65 && input[i] <= 90) || (input[i] >= 97 && input[i] <= 122) || (input[i]>=48 && input[i]<=57)) // игнор знаков 
+			// игнор знаков 
+			if ((input[i] >= 65 && input[i] <= 90) || (input[i] >= 97 && input[i] <= 122) || (input[i]>=48 && input[i]<=57)) 
 			{
 				list(input[i]);
 				count++;
