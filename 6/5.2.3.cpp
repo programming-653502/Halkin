@@ -162,7 +162,7 @@ void main()
 			else
 			{
 				cout << endl << "-----------------------------------" << endl;
-				cout << "Press Enter to reload programm\nor Esc to Exit:" << endl;
+				cout << "Press Enter to reload program\nor Esc to Exit:" << endl;
 				while (choice != 13 || choice != 27)
 				{
 					choice = _getch();
