@@ -90,7 +90,7 @@ void Build_Tree(stack *&MainStack, node *&root) //Добавление узла
 }
 
 void Show(node *&root)		// выводит по возрастанию
-{							// т.к. в приоритете идет по левой стороне
+{				// т.к. в приоритете идет по левой стороне
 	if (root != 0)
 	{
 		Show(root->left);
@@ -124,7 +124,7 @@ void main()
 		n = check();
 
 		cout << "Input the number of elements of stack: "; // для заполнения рандомом
-		e = check();									   // при обычном заполнении посредством ввода можно и без этого		   
+		e = check();					// при обычном заполнении посредством ввода можно и без этого		   
 
 		system("cls");
 
@@ -161,7 +161,8 @@ void main()
 
 			else
 			{
-				cout << endl << "-----------------------------------" << endl << "Press Enter to reload programm\nor Esc to Exit:" << endl;
+				cout << endl << "-----------------------------------" << endl;
+				cout << "Press Enter to reload programm\nor Esc to Exit:" << endl;
 				while (choice != 13 || choice != 27)
 				{
 					choice = _getch();
